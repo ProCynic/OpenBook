@@ -1,0 +1,16 @@
+<ul>
+  <li>[TODO: Picture]</li>
+  <li>${_user.email}</li>
+  <li><a href="@{Application.news()}">news</a></li>
+  <li><a href="@{Application.about()}">about</a></li>
+  <li><a href=${"/users/" + _user.id + "/photos"}>photos</a></li>
+  <li><a href="@{Checkin.checkin()}">Checkin</a></li>
+</ul>
+<section class="friend-list">
+  <h1>friends:</h1>
+  <ul>
+    #{list items:_user.confirmedFriends(), as:'friendship'}
+      <li><a href="@{Application.news(friendship.to.id)}">${friendship.to.name}</a></li>
+    #{/list}
+  </ul>
+</section>
