@@ -45,6 +45,8 @@ header a {
   position:relative;
   top:30px;
   width:100%;
+  height:auto
+  display:block;
 }
 
 footer {
@@ -57,7 +59,6 @@ footer {
   background-color:white;
   border-top:thin solid gray;
   margin-top:50px;
-  z-index:500;
 }
 
 /** where is this used? **/
