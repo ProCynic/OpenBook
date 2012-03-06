@@ -41,9 +41,9 @@ header a {
 }
 
 #non-header{
-  position:absolute;
+  position:fixed;
+  top:30px;
   width:100%;
-  margin-top:30px;
   height:100%;
 }
 
@@ -63,6 +63,7 @@ footer {
   border-top:thin solid gray;
 }
 
+/** where is this used? **/
 .section {
   vertical-align: ${skin.sectionAlign};
   padding: 5px 0px 0px 0px;
@@ -73,6 +74,7 @@ label {
   color: ${skin.labelColor};
 }
 
+/** move to news.css **/
 .comment {
   border: ${skin.commentBorderSize}px solid ${skin.commentBorderColor};
   background-color: #${skin.commentBGColor};
