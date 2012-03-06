@@ -1,5 +1,7 @@
 #{extends 'main.html' /}
-<ul class=photo-list>
+<link rel="stylesheet" type="text/css" media="screen"
+      href="/public/stylesheets/photos.css" />
+<ul class="photo-list">
   #{list items:photos, as:'photo' }
     <li>
       <img src=@{Photos.getPhoto(photo.id)} />
