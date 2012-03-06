@@ -1,0 +1,18 @@
+.navlist {
+  width:200px;
+  height:100%;  /** not doing what I expect **/
+}
+
+.navlist ul {
+  list-style: none;
+}
+
+.friend-list  h1 {
+  text-align: center;
+}
+
+#content {
+  position:absolute;
+  left:200px;
+  top:0;
+}

@@ -16,13 +16,15 @@
       <a href="@{Application.account()}">${currentUser.first_name} ${currentUser.last_name}</a>!
       <a id="logout" href="@{Secure.logout()}">Logout</a>
     </header>
-    <section id="main">
-      #{doLayout /}
-    </section>
-    <footer>
-      <span class="logo">openbook</span> is a 
-      <a href="http://www.cs.utexas.edu/~wcook/Courses/devclass/index.htm">class project</a>
-      to create a simple social networking web site
-    </footer>
+    <div id="non-header">
+      <section id="main">
+        #{doLayout /}
+      </section>
+      <footer>
+        <span class="logo">openbook</span> is a 
+        <a href="http://www.cs.utexas.edu/~wcook/Courses/devclass/index.htm">class project</a>
+        to create a simple social networking web site
+      </footer>
+    </div>
   </body>
 </html>
