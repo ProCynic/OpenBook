@@ -29,6 +29,7 @@ header {
   width: 100%;
   height: 30px;
   line-height:30px;
+  z-index:1000;
 }
 
 header a {
@@ -40,19 +41,15 @@ header a {
   margin-right: 1em;
 }
 
-#non-header{
-  position:fixed;
+#main {
+  position:relative;
   top:30px;
   width:100%;
-  height:100%;
-}
-
-#main {
+  height:auto;
+  margin-bottom:20px;
 }
 
 footer {
-  position:absolute;
-  bottom:0;
   height:20px;
   line-height:20px;
   width:100%;
@@ -61,6 +58,8 @@ footer {
   color: ${skin.footerColor};
   background-color:white;
   border-top:thin solid gray;
+  margin-top:1em;
+  z-index:500;
 }
 
 /** where is this used? **/

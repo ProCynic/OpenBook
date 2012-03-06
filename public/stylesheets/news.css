@@ -5,3 +5,11 @@
 .comment-list {
   list-style: none;
 }
+
+.textarea {
+  position:absolute;
+}
+
+.post form {
+  position:relative;
+}
