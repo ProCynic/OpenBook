@@ -9,22 +9,20 @@
           href="@{'/public/images/favicon.png'}" />
   </head>
   <body>
-
-      <header>
-        <a id="logo" class="logo" href="@{Application.news()}">Openbook</a>
-        <input type="text" name="query" />
-        Hello 
-        <a href="@{Application.account()}">${currentUser.first_name} ${currentUser.last_name}</a>!
-        <a id="logout" href="@{Secure.logout()}">Logout</a>
-      </header>
-      <div id="main">
-        #{doLayout /}
-      </div>
-      <footer>
-        <span class="logo">openbook</span> is a 
-        <a href="http://www.cs.utexas.edu/~wcook/Courses/devclass/index.htm">class project</a>
-        to create a simple social networking web site
-      </footer>
-
+    <header>
+      <a id="logo" class="logo" href="@{Application.news()}">Openbook</a>
+      <input type="text" name="query" />
+      Hello 
+      <a href="@{Application.account()}">${currentUser.first_name} ${currentUser.last_name}</a>!
+      <a id="logout" href="@{Secure.logout()}">Logout</a>
+    </header>
+    <div id="main">
+      #{doLayout /}
+    </div>
+    <footer>
+      <span class="logo">openbook</span> is a 
+      <a href="http://www.cs.utexas.edu/~wcook/Courses/devclass/index.htm">class project</a>
+      to create a simple social networking web site
+    </footer>
   </body>
 </html>
