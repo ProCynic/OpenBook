@@ -1,6 +1,6 @@
 .navlist {
-  float:left;
-  width:200px;
+  float: left;
+  width: 20%;
   height:100%;
 }
 
@@ -13,4 +13,7 @@
 }
 
 #content {
+    margin-left: auto;
+    width: 80%;
+    min-height: 800px;
 }

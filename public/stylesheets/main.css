@@ -32,6 +32,7 @@ header {
   z-index:1000;
 }
 
+
 header a {
   color:white;
 }
@@ -48,6 +49,7 @@ header a {
   height:auto
   display:block;
 }
+
 
 footer {
   height:20px;
