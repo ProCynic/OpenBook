@@ -16,13 +16,13 @@
     <a href="/events/upcoming">Upcoming Events</a>
   </li>
 
-  <li class="nav-header">etc</li>
-  <li>
-    <a href="#">Extra Stuff</a>
-  </li>
-
   <li class="nav-header">Birthdays</li>
+  <li>Today</li>
   #{list items:_user.birthdaysToday(5), as:'u'}
-    <li>u</li>
+    <li>${u}${u.profile.birthday.toString()}</li>
+  #{/list}
+  <li>This Week</li>
+  #{list items:_user.birthdaysThisWeek(5), as:'u'}
+    <li>${u}${u.profile.birthday.toString()}</li>
   #{/list}
 </ul>
