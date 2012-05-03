@@ -1,16 +1,11 @@
 #{extends 'main.html' /}
-<link rel="stylesheet" type="text/css" media="screen"
-      href="@{'/public/stylesheets/about.css'}" />
-
-<script type="text/javascript" src="/public/javascripts/profile.js"></script>
-
-<div class="globalContentAbout">  
-  <div class="LeftColumnAbout">   
-    <div class="Panel">
+<div class="container">  
+  <div class="span6">   
+    <div class="row well">
       <span class="PanelTitle">&{'profile.about.you'}</span>
-      <button class="EditButton" id="AboutMeEditButton">Edit<img src="@{'public/images/edit_icon.gif'}" />
+      <button class="btn">Edit<i class="icon-edit" data-toggle="collapse" data-target="#EditDataAboutMe"></i>
       </button><br/>
-      <div class="editData" id="EditDataAboutMe" style="display:none;">
+      <div class="editData collapse" id="EditDataAboutMe">
         #{form @Profiles.updateBio() }
           <table>
             <tr>
@@ -18,13 +13,13 @@
               </td>
               
               <td><input size=50 type="text" name="bio" onfocus="if(this.value == 'Write About Yourself'){this.value = '';}"
-		         onblur="if(this.value == ''){this.value='Write About Yourself';}" 
-		         value="${profile.bio ? profile.bio : 'Write About Yourself'}">
+                         onblur="if(this.value == ''){this.value='Write About Yourself';}" 
+                         value="${profile.bio ? profile.bio : 'Write About Yourself'}">
               </td>
             </tr>
           </table>
           <input type="submit" value="Save" id="updateBio" />
-	  <input type="reset" value="Cancel">
+          <input type="reset" value="Cancel">
         #{/form}
       </div>
       <div class="Data" id="AboutMeData" style="display:block;">
@@ -38,11 +33,11 @@
         </table>
       </div>
     </div>
-    <div class="Panel">
+    <div class="row well">
       <span class="PanelTitle">&{'profile.info'}</span>
-      <button class="EditButton" id="InformationEditButton">Edit<img src="@{'public/images/edit_icon.gif'}" />
+      <button class="btn">Edit<i class="icon-edit"></i>
       </button><br/>
-      <div class="editData" id="EditDataInformation" style="display:none;">
+      <div class="editData hide" id="EditDataInformation">
         #{form @Profiles.updateInformation()}
           <table>
             <tr>
@@ -182,30 +177,30 @@
         </table>
       </div>
     </div>
-    <div class="Panel">
+    <div class="row well">
       <span class="PanelTitle">&{'profile.contact.info'}</span>
-      <button class="EditButton" id="ContactInfoEditButton">Edit<img src="@{'public/images/edit_icon.gif'}" />
+      <button class="btn">Edit<i class="icon-edit"></i>
       </button><br/>
-      <div class="editData" id="EditDataContactInfo" style="display:none;">
+      <div class="editData hide" id="EditDataContactInfo">
         #{form @Profiles.updateContactInfo()}
           <table>
             <tr>
               <td><label><b>&{'profile.phone'}: </b></label></td>
               <td><input type="text" name="phone" onfocus="if(this.value == 'Add A Phone Number'){this.value = '';}"
-		         onblur="if(this.value == ''){this.value='Add A Phone Number';}"
+                         onblur="if(this.value == ''){this.value='Add A Phone Number';}"
                          value="${profile.phone ? profile.phone : 'Add A Phone Number'}">
               </td>
             </tr>
             <tr>
               <td><label><b>&{'profile.address'}: </b></label></td>
               <td><input type="text" name="address" onfocus="if(this.value == 'Add Current Address'){this.value = '';}"
-		         onblur="if(this.value == ''){this.value='Add Current Address';}"
+                         onblur="if(this.value == ''){this.value='Add Current Address';}"
                          value="${profile.address ? profile.address : 'Add Current Address'}">
               </td>
             </tr>
           </table>
           <input type="submit" value="Save" id="updateContactInfo" />
-	  <input type="reset" value="Cancel">
+          <input type="reset" value="Cancel">
         #{/form}
       </div>
       <div class="Data" id="ContactInfoData" style="display:block;">
@@ -234,29 +229,29 @@
     </div>
   </div>
   
-  <div class="RightColumnAbout">
-    <div class="Panel">
+  <div class="span6 offset6">
+    <div class="row well">
       <span class="PanelTitle">&{'profile.work.and.education'}</span>
-      <button class="EditButton" id="WorkEduEditButton">Edit<img src="@{'public/images/edit_icon.gif'}" />
+      <button class="btn">Edit<i class="icon-edit"></i>
       </button><br/>
-      <div class="editData" id="EditDataWorkEdu" style="display:none;">
+      <div class="editData hide" id="EditDataWorkEdu">
         #{form @Profiles.updateWorkEdu()}
           <table>
             <tr>
               <td><label>&{'profile.education'}:</label></td>
               <td>
-	        <input size=50 type="text" name="edu" onfocus="if(this.value == 'Add A School'){this.value = '';}"
-		       onblur="if(this.value == ''){this.value='Add A School';}"
-		       value="#{list items:profile.education, as:'enrollment'}
-		              ${enrollment.toString()}, #{/list}Add A School"}>
+                <input size=50 type="text" name="edu" onfocus="if(this.value == 'Add A School'){this.value = '';}"
+                       onblur="if(this.value == ''){this.value='Add A School';}"
+                       value="#{list items:profile.education, as:'enrollment'}
+                              ${enrollment.toString()}, #{/list}Add A School"}>
               </td>
             </tr>
             <tr>
               <td><label>&{'profile.work.history'}:</label></td>
               <td>#{list items:profile.work, as:'work'}
                 ${work.toString()} #{/list} 
-	        <input size=50 type=text name="work"
-              	       value="Add an employer">
+                <input size=50 type=text name="work"
+                       value="Add an employer">
               </td>
             </tr>
           </table>
@@ -284,22 +279,22 @@
         </table>
       </div>
     </div>
-    <div class="Panel">
+    <div class="row well">
       <span class="PanelTitle">&{'profile.living'}</span>
-      <button class="EditButton" id="LivingEditButton">Edit<img src="@{'public/images/edit_icon.gif'}" />
+      <button class="btn">Edit<i class="icon-edit"></i>
       </button><br/>
-      <div class="editData" id="EditDataLiving" style="display:none;">
-	#{form @Profiles.updateLiving()}
+      <div class="editData hide" id="EditDataLiving">
+        #{form @Profiles.updateLiving()}
           <table>
             <tr>
               <td><label>&{'profile.hometown'}: </label></td>
               <td><input type="text" name="hometown" onfocus="if(this.value == 'Add Hometown'){this.value = '';}"
-		         onblur="if(this.value == ''){this.value='Add Hometown';}"
+                         onblur="if(this.value == ''){this.value='Add Hometown';}"
                          value="${profile.hometown ? profile.hometown : 'Add Hometown'}">
               </td>
             </tr>
           </table>
-	  <input type="submit" value="Save" id="updateLiving" />
+          <input type="submit" value="Save" id="updateLiving" />
         #{/form}
       </div>
       <div class="Data" id="LivingData" style="display:block;">
@@ -313,12 +308,12 @@
         </table>
       </div>
     </div>
-    <div class="Panel">
+    <div class="row well">
       <span class="PanelTitle">&{'profile.favorite.quotations'}</span>
-      <button class="EditButton" id="QuoteEditButton">Edit<img src="@{'public/images/edit_icon.gif'}" />
+      <button class="btn">Edit<i class="icon-edit"></i>
       </button><br/>
-      <div class="editData" id="EditDataQuote" style="display:none;">
-	#{form @Profiles.updateQuote() }
+      <div class="editData hide" id="EditDataQuote">
+        #{form @Profiles.updateQuote() }
           <table>
             <tr>
               <td><label>&{'profile.quote'}: </label></td>
@@ -327,8 +322,8 @@
               </td>
             </tr>
           </table>
-	  <input type="submit" value="Save" id="updateQuote" />
-	  <input type="reset" value="Cancel">
+          <input type="submit" value="Save" id="updateQuote" />
+          <input type="reset" value="Cancel">
         #{/form}
       </div>
       <div class="Data" id="QuoteData" style="display:block;">
