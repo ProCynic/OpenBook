@@ -381,10 +381,12 @@ public class User extends Postable {
   }
 
   public List<User> birthdaysToday(int n) {
-    return User.find("Select u from User u join u.friends as f where ?1 in f and u.profile.birthday = CURRENT_DATE", this).fetch(n);
+    //return User.find("Select u from User u join u.friends as f where ?1 in f and u.profile.birthday = CURRENT_DATE", this).fetch(n);
+    return User.find("Select u from User u join u.friends as f where ?1 in f", this).fetch(n);
   }
 
   public List<User> birthdaysThisWeek(int n) {
-    return User.find("Select u from User u join u.friends as f where ?1 in f and u.profile.birthday > CURRENT_DATE and u.profile.birthday <= CURRENT_DATE + 7", this).fetch(n);
+    //return User.find("Select u from User u join u.friends as f where ?1 in f and u.profile.birthday > CURRENT_DATE and u.profile.birthday <= CURRENT_DATE + 7", this).fetch(n);
+    return User.find("Select u from User u join u.friends as f where ?1 in f", this).fetch(n);
   }
 }

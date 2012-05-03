@@ -19,10 +19,41 @@
   <li class="nav-header">Birthdays</li>
   <li>Today</li>
   #{list items:_user.birthdaysToday(5), as:'u'}
-    <li>${u}${u.profile.birthday.toString()}</li>
+    <li><a data-toggle="modal" href="#bdayWallModal" onclick="initBdayModal('${u}', '${u.id}')"><i class="icon-gift"></i>${u}</a></li>
   #{/list}
   <li>This Week</li>
   #{list items:_user.birthdaysThisWeek(5), as:'u'}
-    <li>${u}${u.profile.birthday.toString()}</li>
+    <li><a data-toggle="modal" href="#bdayWallModal" onclick="initBdayModal('${u}', '${u.id}')"><i class="icon-gift"></i>${u}</a></li>
   #{/list}
 </ul>
+
+
+<div class="modal fade" id="bdayWallModal">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Write on <span id="bday-target-name">Name goes here</span>'s Wall</h3>
+    <div class="modal-body">
+      <textarea id="bday-modal-textarea" placeholder="Happy Birthday!" style="width:95%">
+      </textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn pull-left" data-dismiss="modal" id="submit-bday-post">Send</button>
+      <button class="btn pull-left" data-dismiss="modal">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#bdayWallModal').on('shown', function () {
+    var ta = $('#bday-modal-textarea');
+    ta.val('');
+    ta.focus();
+  });
+
+  function initBdayModal(name, id) {
+    $('#bday-target-name').text(name);
+    $('#submit-bday-post').click(function() {
+      submit('bday-modal-textarea', '', '/user/' + id + '/wall');
+    });
+  }
+</script>
