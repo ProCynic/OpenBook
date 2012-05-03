@@ -58,6 +58,7 @@ Profile(bobProfile):
 
 Profile(jeffProfile):
     owner:              jeff
+    birthday:           1990-05-02
 
 Profile(aliceProfile):
     owner:              alice

@@ -31,43 +31,7 @@
   </li>
 
   <li class="nav-header">Birthdays</li>
-  <li>
-    <iframe style="DISPLAY: none" id="HiddenDiv" src="@{UpcomingBirthdays.showUpcomingBirthdays(_user.id)}" width = "100%" height = "100%"
-            scrolling = "auto" align = "middle" marginheight = "0" 
-            marginwidth = "0" hspace = "5" vspace = "5" frameborder = "0" style="border:none;">
-    </iframe> 
-  </li>
-  <li>  
-    <button id="showDiv" class="btn hide" onclick ="ShowHide('HiddenDiv')"><i>Hide</i> <i class="icon-chevron-up"></i></button>
-    <button id="hideDiv" class="btn" onclick ="ShowHide('HiddenDiv')"><i>Show</i> <i class="icon-chevron-down"></i></button>
-  </li>
+  #{list items:_user.birthdaysToday(5), as:'u'}
+    <li>u</li>
+  #{/list}
 </ul>
-
-<div id="modalHolder">
-  Today's Birthday
-  <textarea name="comment_content11" id="commentContent11" placeholder="Write something on their wall..." 
-            style="color:grey; width: 280px; height: 20px; resize: none;"  rows="2" cols="35" maxlength="400" ></textarea>
-  <button class="button" id="commentSubmit11" onclick="submitComment(11)">Comment</button>  
-</div>
-
-<script>
-  function ShowHide(divId) {
-    if(document.getElementById(divId).style.display == 'none') {
-      document.getElementById(divId).style.display='block';
-      document.getElementById('showDiv').style.display='block';
-      document.getElementById('hideDiv').style.display='none';
-
-    }
-    else {
-      document.getElementById(divId).style.display = 'none';
-      document.getElementById('showDiv').style.display='none';
-      document.getElementById('hideDiv').style.display='block';
-    }
-  }
-</script>
-
-<script src=@{'/public/javascripts/jquery.ba-outside-events.js'}></script>
-<script type="text/javascript" src="/public/javascripts/jquery.ba-outside-events.js"></script>
-
-
-        

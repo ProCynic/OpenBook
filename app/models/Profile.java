@@ -3,11 +3,7 @@ package models;
 import java.io.*;
 import java.util.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import play.data.validation.Phone;
 
@@ -37,6 +33,7 @@ public class Profile extends Model {
   @OneToOne
   public Photo gravatarPhoto;
 
+  @Temporal(TemporalType.DATE)
   public Date birthday; // The user's birthday, uses jJQuery UI
 
   @ManyToOne

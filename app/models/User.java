@@ -83,11 +83,11 @@ public class User extends Postable {
   @ElasticSearchIgnore
   @ManyToMany(mappedBy="thoseWhoLike")
   public Set<Likeable> likes;
-  
+
   @ElasticSearchIgnore
   @ManyToMany(mappedBy="usersWhoAnswered")
   public Set<Answer> userAnswers;
-  
+
   @ElasticSearchIgnore
   @OneToMany(mappedBy="owner")
   public Set<Question> questions;
@@ -301,7 +301,7 @@ public class User extends Postable {
   }
 
   /** List all events for any user upcoming
-   * 
+   *
    * @ return a list of events that haven't happened yet the user is a member of
    */
   public List<Event> myUpcomingEvents(){
@@ -321,7 +321,7 @@ public class User extends Postable {
   }
 
   /** List all events for any user happening today
-   * 
+   *
    * @ return a list of events that happen today the user is a member of
    */
   public List<Event> todayEvents(){
@@ -341,7 +341,7 @@ public class User extends Postable {
   }
 
   /** List all events for any user upcoming that the user declined
-   * 
+   *
    * @ return a list of events that haven't happened yet the user declined
    */
   public List<Event> myDeclinedEvents(){
@@ -361,8 +361,8 @@ public class User extends Postable {
   }
 
   /** List all declined events for any user happening today
-   * 
-   * @ return a list of declined events that happen today 
+   *
+   * @ return a list of declined events that happen today
    */
   public List<Event> declinedTodayEvents(){
     List<Event> allEvents = Event.findAll();
@@ -378,5 +378,9 @@ public class User extends Postable {
     }
     Collections.sort(answer);
     return answer;
+  }
+
+  public List<User> birthdaysToday(int n) {
+    return User.find("Select u from User u join u.friends as f where ?1 in f and u.profile.birthday like ?2", this, new Date()).fetch(n);
   }
 }
