@@ -38,15 +38,17 @@
     </span>
     <button class="button unlike-btn #{if !_item.likedBy(_user)}hide#{/if}"
             onclick="unlike('/posts/${_item.id}/likes', 'post-metadata-${_item.id}')">
-      &{'comment.unlike'}
+      <i class="icon-remove-sign"></i> &{'comment.unlike'}
     </button>
     <button class="button like-btn #{if _item.likedBy(_user)}hide#{/if}"
             onclick="like('/posts/${_item.id}/likes', 'post-metadata-${_item.id}')">
-      &{'comment.like'}
+      <i class="icon-ok-sign"></i> &{'comment.like'}
     </button>
     #{timeago date:_item.updatedAt /}.
     #{if _item.owner ==  _user} 
-      <button class="button" onclick="deleteThing(${_item.id}, 'post')">remove post</button> 
+      <button class="button" onclick="deleteThing(${_item.id}, 'post')">
+        <i class="icon-minus"></i> remove post
+      </button> 
     #{/if}
   </li>
 
@@ -63,7 +65,7 @@
          src="@{Thumbnails.get30x30(_user.profile.profilePhoto.id)}" display="inline" width="30" height="30" />
     <textarea name="comment_content${_item.id}" id="commentContent${_item.id}" placeholder="new comment..." 
               style="color:grey; width: 350px; height: 30px;" resize="vertical" rows="2" cols="35" maxlength="400" ></textarea>
-    <button class="button" id="commentSubmit${_item.id}" onclick="submit('commentContent${_item.id}', 'comment-list${_item.id}', '/posts/${_item.id}/comments')">Comment</button>
+    <button class="button" onclick="submit('commentContent${_item.id}', 'comment-list${_item.id}', '/posts/${_item.id}/comments')"><i class="icon-comment"></i> Comment</button>
   </li>
 </ul>
 

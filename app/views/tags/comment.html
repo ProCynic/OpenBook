@@ -18,17 +18,19 @@
     </span>
     <button class="button unlike-btn #{if !_comment.likedBy(_user)}hide#{/if}"
             onclick="unlike('/comments/${_comment.id}/likes', 'comment-metadata-${_comment.id}')">
-      &{'comment.unlike'}
+      <i class="icon-remove-sign"></i> &{'comment.unlike'}
     </button>
     <button class="button like-btn #{if _comment.likedBy(_user)}hide#{/if}"
             onclick="like('/comments/${_comment.id}/likes', 'comment-metadata-${_comment.id}')">
-      &{'comment.like'}
+      <i class="icon-ok-sign"></i> &{'comment.like'}
     </button>
     <span class="comment-date">
       #{timeago date:_comment.updatedAt /}
     </span>
     #{if _comment.owner.id == _user.id} 
-      <button class="button" onclick="deleteThing(${_comment.id}, 'comment')">&{'comment.delete'}</button>
+      <button class="button" onclick="deleteThing(${_comment.id}, 'comment')">
+        <i class="icon-minus"></i> &{'comment.delete'}
+      </button>
     #{/if} 
   </div>
   <div class="span7"></div>
